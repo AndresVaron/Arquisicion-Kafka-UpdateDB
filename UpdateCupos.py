@@ -17,7 +17,7 @@ try:
             cur = conn.cursor()
             if (message.value['tipo'] == 'llegada'):
                 print("llego")
-elif (message.value['tipo'] == 'salida'):
+            elif (message.value['tipo'] == 'salida'):
 	        print("salio")
             respuesta = cur.fetchone()
        	    print(respuesta)
