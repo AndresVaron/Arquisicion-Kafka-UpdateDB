@@ -16,13 +16,11 @@ try:
             print("id = %s  || tipo = %s" % (message.value['id'], message.value['tipo']))
             cur = conn.cursor()
             if (message.value['tipo'] == 'llegada'):
-                print("llego")
+                cur.execute("UPDATE parqueaderoempresaentity SET cupos = cupos - 1 WHERE id = " + str(message.value['id'])+ ";")
             elif (message.value['tipo'] == 'salida'):
-                print("salio")
-            respuesta = cur.fetchone()
-            print(respuesta)
+                cur.execute("UPDATE parqueaderoempresaentity SET cupos = cupos + 1 WHERE id = " + str(message.value['id'])+ ";")
+            conn.commit()
             cur.close()
-        time.sleep(30)
 except (Exception, psycopg2.DatabaseError) as error:
     print(error)
 finally:
