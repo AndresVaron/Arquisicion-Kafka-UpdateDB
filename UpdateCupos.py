@@ -11,18 +11,18 @@ conn = None
 try:
     conn = psycopg2.connect(host="172.24.99.21",database="arquisicion", user="admin", password="admin123",port = "5432")
     print("Iniciado servicio de atualizacion de cupos")
-	while True:
+    while True:
         for message in consumer:
             print("id = %s  || tipo = %s" % (message.value['id'], message.value['tipo']))
             cur = conn.cursor()
             if (message.value['tipo'] == 'llegada'):
-                print("llego")
+               print("llego")
             elif (message.value['tipo'] == 'salida'):
-			    print("salio")
-		    respuesta = cur.fetchone()
-		    print(respuesta)
-		    cur.close()
-    time.sleep(30)
+	       print("salio")
+            respuesta = cur.fetchone()
+       	    print(respuesta)
+ 	    cur.close()
+        time.sleep(30)
 except (Exception, psycopg2.DatabaseError) as error:
     print(error)
 finally:
