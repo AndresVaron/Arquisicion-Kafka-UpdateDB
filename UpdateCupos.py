@@ -16,9 +16,9 @@ try:
             print("id = %s  || tipo = %s" % (message.value['id'], message.value['tipo']))
             cur = conn.cursor()
             if (message.value['tipo'] == 'llegada'):
-               print("llego")
-            elif (message.value['tipo'] == 'salida'):
-	       print("salio")
+                print("llego")
+elif (message.value['tipo'] == 'salida'):
+	        print("salio")
             respuesta = cur.fetchone()
        	    print(respuesta)
  	    cur.close()
