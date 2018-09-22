@@ -18,10 +18,10 @@ try:
             if (message.value['tipo'] == 'llegada'):
                 print("llego")
             elif (message.value['tipo'] == 'salida'):
-	        print("salio")
+                print("salio")
             respuesta = cur.fetchone()
-       	    print(respuesta)
- 	    cur.close()
+            print(respuesta)
+            cur.close()
         time.sleep(30)
 except (Exception, psycopg2.DatabaseError) as error:
     print(error)
