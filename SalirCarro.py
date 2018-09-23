@@ -9,4 +9,4 @@ producer = KafkaProducer(bootstrap_servers=['172.24.41.199:8084'],
 while True:
 	producer.send('Update_Cupos', {'id': '1', 'tipo':'salida'})
 	producer.flush()
-	time.sleep(50)
+	time.sleep(2)
